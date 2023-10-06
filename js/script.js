@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let lista = document.getElementById("lista");
         lista.innerHTML = ``;
         for(let i = 0; i < pelis.length; i++){
-            if(pelis[i].title.includes(peliB) || pelis[i].tagline.includes(peliB) || pelis[i].overview.includes(peliB)){
-                lista.innerHTML += `<a href="#" class="list-group-item list-group-item-action"> ${pelis[i].title} </a>`;
+            if(pelis[i].title.toLowerCase().includes(peliB) || pelis[i].tagline.toLowerCase().includes(peliB) || pelis[i].overview.toLowerCase().includes(peliB)){
+                lista.innerHTML += `<a onclick="" class="list-group-item list-group-item-action"> ${pelis[i].title} </a>`;
             }
         }
-    })
+    });
 })
