@@ -20,7 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 5 - Math.round(peli.vote_average / 2); i++){
                 estrellitas += `<span class="fa fa-star" style="color:white"></span>`
             }
-            document.getElementById("lista").innerHTML += `<li class="list-group-item bg-dark"><b class="text-white bg-dark">${peli.title}</b>${estrellitas}<br><small class="text-muted bg-dark">${peli.tagline}</small></li>`
+            document.getElementById("lista").innerHTML += `<li id="${peli.id}" onclick="clickPeli(this.id)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" class="list-group-item bg-dark"><b class="text-white bg-dark">${peli.title}</b>${estrellitas}<br><small class="text-muted bg-dark">${peli.tagline}</small></li>`
         }
     });
 });
+
+function clickPeli(peliID){
+    // console.log(peliID)
+    peli = pelis.find((p) => p.id == peliID)
+    document.getElementById("offcanvasTopLabel").innerHTML = peli.title
+    document.getElementById("offcanvasOverviewPeli").innerHTML = peli.overview
+    for (genero of peli.genres){
+        document.getElementById("offcanvasGenres").innerHTML += genero.name + " "
+    } 
+    document.getElementById("offcanvasDropdown").innerHTML = ''
+    document.getElementById("offcanvasDropdown").innerHTML += `<li><a class="dropdown-item" href="#">Year: ${peli.release_date}</a></li>`
+    document.getElementById("offcanvasDropdown").innerHTML += `<li><a class="dropdown-item" href="#">Runtime: ${peli.runtime} mins</a></li>`
+    document.getElementById("offcanvasDropdown").innerHTML += `<li><a class="dropdown-item" href="#">Budget: $${peli.budget}</a></li>`
+    document.getElementById("offcanvasDropdown").innerHTML += `<li><a class="dropdown-item" href="#">Revenue: ${peli.revenue}</a></li>`
+}
