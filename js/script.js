@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         lista.innerHTML = ``;
         for(let i = 0; i < pelis.length; i++){
             if(pelis[i].title.toLowerCase().includes(peliB) || pelis[i].tagline.toLowerCase().includes(peliB) || pelis[i].overview.toLowerCase().includes(peliB)){
-                lista.innerHTML += `<a onclick="" class="list-group-item list-group-item-action"> ${pelis[i].title} </a>`;
+                lista.innerHTML += `<a class="list-group-item list-group-item-action class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"> ${pelis[i].title} </a>`;
             }
         }
     });
