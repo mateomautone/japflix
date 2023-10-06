@@ -8,6 +8,11 @@ fetch('https://japceibal.github.io/japflix_api/movies-data.json')
 
 function canvas(array){
     document.getElementById("offcanvasTopLabel").innerHTML = `${array.title}`;
+    document.getElementById("offcanvasBody").innerHTML = `${array.overview}`;
+    document.getElementById("año").innerHTML = `Year: ${array.release_date.substring(0, 4)}`;
+    document.getElementById("duracion").innerHTML = `Runtime: ${array.runtime} mins`;
+    document.getElementById("presupuesto").innerHTML = `Budget: $${array.budget}`;
+    document.getElementById("recaudacion").innerHTML = `Revenue: $${array.revenue}`;
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
